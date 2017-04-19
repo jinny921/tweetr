@@ -14,27 +14,29 @@
 }
 
 #tweets .fullName {
-    line-height: 30px;
+    line-height: 40px;
     margin-left: 10px;
     float: left;
     font-size: 2em;
+    color: teal;
 }
 
 #tweets .userAcc {
   float: right;
-  padding: 0px 10px;
+  padding: 10px 10px;
   color: grey;
 }
 
 #tweets header {
   border-bottom: solid thin lightgrey;
   padding: 10px 0 90px 0px;
-  background-color: lightgrey;
+  background-color: #EBDDE2;
   font-weight: bold;
+  border-radius: 10px;
 }
 
 #tweets .content {
-  padding: 50px 10px;
+  padding: 10px 10px;
   height: 120px;
   font-size: 1.5em;
 }
@@ -52,4 +54,10 @@
 #tweets .icons {
   display: inline-block;
   float: right;
+  margin: 15px;
+  opacity: 0.5;
+}
+
+#tweets .icons:hover {
+  opacity: 1.0;
 }

@@ -3,7 +3,14 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-$( document ).ready(function() {
+
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
+$(document).ready(function() {
   const $tweets = $('#tweets');
   const tweetData = [
     {
@@ -53,15 +60,19 @@ $( document ).ready(function() {
   ];
 
   function createTweetElement(tweet) {
+    var date = new Date(tweet.created_at);
+    console.log(date);
     return `<article>
               <header>
-                <img class="avatar" src="${tweet.user.avatars.small}">
-                <div class="fullName">${tweet.user.name}</div>
-                <div class="userAcc">${tweet.user.handle}</div>
+                <img class="avatar" src="${escape(tweet.user.avatars.small)}">
+                <div class="fullName">${escape(tweet.user.name)}</div>
+                <div class="userAcc">${escape(tweet.user.handle)}</div>
               </header>
-              <div class="content">${tweet.content.text}</div>
+              <div class="content">
+                <p>${escape(tweet.content.text)}</p>
+              </div>
               <footer>
-                <p>${tweet.created_at}</p>
+                <p>${escape(date.toJSON())}</p>
                 <div class="icons">
                   <i class="fa fa-flag" aria-hidden="true"></i>
                   <i class="fa fa-retweet" aria-hidden="true"></i>
@@ -70,8 +81,11 @@ $( document ).ready(function() {
               </footer>
             </article>`
   }
-  $tweets.append(tweeterData.map(createTweetElement));
+
+
+
+  $tweets.append(tweetData.map(createTweetElement));
+  // $(escape($tweets));
 });
 
-console.log($tweets);
 

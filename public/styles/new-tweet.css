@@ -1,13 +1,14 @@
 .new-tweet {
   border: solid lightgrey 1px;
   border-radius: 10px;
-  background-color: lightgrey;
+  background-color: #EBDDE2;
   padding: 15px;
 }
 
 .new-tweet h2 {
   border-bottom: solid thin;
   margin-top: 0px;
+  color: teal;
 }
 
 .new-tweet textarea {
