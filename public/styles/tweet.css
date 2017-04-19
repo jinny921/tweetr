@@ -1,0 +1,55 @@
+#tweet article {
+  border: solid lightgrey 1px;
+  border-radius: 10px;
+  margin: 10px 0px;
+}
+
+#tweet .avatar {
+  float: left;
+  height: 80px;
+  width: 80px;
+  margin-left: 10px;
+  border: solid thin lemonchiffon;
+  border-radius: 10px;
+}
+
+#tweet .fullName {
+    line-height: 30px;
+    margin-left: 10px;
+    float: left;
+    font-size: 2em;
+}
+
+#tweet .userAcc {
+  float: right;
+  padding: 0px 10px;
+  color: grey;
+}
+
+#tweet header {
+  border-bottom: solid thin lightgrey;
+  padding: 10px 0 90px 0px;
+  background-color: lightgrey;
+  font-weight: bold;
+}
+
+#tweet .content {
+  padding: 50px 10px;
+  height: 120px;
+  font-size: 1.5em;
+}
+
+
+#tweet footer {
+  border-top: solid thin lightgrey;
+  padding: 0px 10px;
+}
+
+#tweet p {
+  display: inline-block;
+}
+
+#tweet .icons {
+  display: inline-block;
+  float: right;
+}
