@@ -16,8 +16,13 @@
   margin-bottom: 10px;
 }
 
-.new-tweet span {
+.new-tweet .counter {
   float: right;
 }
 
 .red { color: red; }
+
+.new-tweet .err {
+  color: red;
+  padding: 10px;
+}

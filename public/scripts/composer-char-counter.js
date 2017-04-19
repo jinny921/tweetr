@@ -2,6 +2,7 @@ $(function() {
   const $textarea = $('.new-tweet textarea');
   const $counter = $('.counter');
   const MAX_CHARS = $textarea.data('max-length');
+  const $error = $('.new-tweet span.err');
   $counter.text(MAX_CHARS);
   
   function onKeyEvent(e) {
@@ -9,13 +10,13 @@ $(function() {
     $counter.text(remaining);
     if(remaining < 0) { 
       $counter.addClass('red');
+      $error.text('You are tweeting too much!');
     } else {
       $counter.removeClass('red');
     }
   }
 
-  $textarea.on('keyup', onKeyEvent);
-  $textarea.on('keydown', onKeyEvent);
+  $textarea.on('input', onKeyEvent);
 });
 
   // $('.new-tweet textarea').on('keydown', function(e) {
