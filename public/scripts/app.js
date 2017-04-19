@@ -11,7 +11,6 @@ function escape(str) {
 };
 
 $(document).ready(function() {
-  const $tweets = $('#tweets');
   const tweetData = [
     {
       "user": {
@@ -60,8 +59,6 @@ $(document).ready(function() {
   ];
 
   function createTweetElement(tweet) {
-    var date = new Date(tweet.created_at);
-    console.log(date);
     return `<article>
               <header>
                 <img class="avatar" src="${escape(tweet.user.avatars.small)}">
@@ -72,7 +69,7 @@ $(document).ready(function() {
                 <p>${escape(tweet.content.text)}</p>
               </div>
               <footer>
-                <p>${escape(date.toJSON())}</p>
+                <p>${escape(moment(tweet.created_at).fromNow())}</p>
                 <div class="icons">
                   <i class="fa fa-flag" aria-hidden="true"></i>
                   <i class="fa fa-retweet" aria-hidden="true"></i>
@@ -80,12 +77,32 @@ $(document).ready(function() {
                 </div>
               </footer>
             </article>`
-  }
+  };
+
+  function renderTweets(tweets) {
+    $('#tweets').empty().append(tweets.map(createTweetElement));
+  };
+
+  function loadTweets(tweets) {
+    $.ajax({
+      method: "GET", 
+      url: "/tweets",
+      success: renderTweets
+    });
+  };
+
+  renderTweets(tweetData);
 
 
-
-  $tweets.append(tweetData.map(createTweetElement));
-  // $(escape($tweets));
+  $( "form" ).on( "submit", function( event ) {
+    event.preventDefault();
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: $( this ).serialize(),
+      success: loadTweets
+    });
+  });
 });
 
 
