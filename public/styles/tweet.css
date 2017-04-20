@@ -4,6 +4,10 @@
   margin: 10px 0px;
 }
 
+#tweets article:hover .icons {
+  opacity: 1.0;
+}
+
 #tweets .avatar {
   float: left;
   height: 80px;
@@ -33,7 +37,8 @@
   padding: 10px 0 10px 0px;
   background-color: #EBDDE2;
   font-weight: bold;
-  border-radius: 10px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
 }
 
 #tweets .content {
@@ -56,9 +61,6 @@
   display: inline-block;
   float: right;
   margin: 15px;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
-#tweets .icons:hover {
-  opacity: 1.0;
-}
