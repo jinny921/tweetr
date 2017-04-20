@@ -118,8 +118,9 @@ $(document).ready(function() {
       success(){
         loadTweets();
         $('.new-tweet').slideToggle();
-        $('.new-tweet textarea').val('');
+        $textarea.val('');
         $('.new-tweet .counter').text('140');
+        $error.text("");
       }
      });
     });
