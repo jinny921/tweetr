@@ -95,22 +95,34 @@ $(document).ready(function() {
 
   const $textarea = $('.new-tweet textarea');
   const MAX_CHARS = $textarea.data('max-length');
-  const remaining = MAX_CHARS - $textarea.val().length;
   const $error = $('.new-tweet span.err');
+
+ $( "#nav-bar .composeButton" ).click(function() {
+  $(this).toggleClass('change');
+  $( ".new-tweet" ).slideToggle();
+  $textarea.focus();
+ });
 
   $( "form" ).on( "submit", function( event ) {
     event.preventDefault();
-    if (remaining === 140) {
+    const remaining = MAX_CHARS - $textarea.val().length;
+
+    if (remaining === MAX_CHARS) {
       $error.text('Wanna tweeeeeeeet?');
-    } else {
-      $.ajax({
-        method: "POST",
-        url: "/tweets",
-        data: $( this ).serialize(),
-        success: loadTweets
+      return;
+    } 
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: $( this ).serialize(),
+      success(){
+        loadTweets();
+        $('.new-tweet').slideToggle();
+        $('.new-tweet textarea').val('');
+        $('.new-tweet .counter').text('140');
+      }
      });
-    }
-  });
+    });
 });
 
 

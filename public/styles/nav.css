@@ -20,3 +20,15 @@
   line-height: 80px;
   float: left;
 }
+
+#nav-bar .composeButton {
+  float: right;
+  height: 50px;
+  width: 100px;
+  margin-top: 15px;
+  background-color: #f2a7d6;
+  border: solid grey;
+  border-radius: 15px; 
+}
+
+.change { opacity: 0.5; }
