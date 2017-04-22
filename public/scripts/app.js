@@ -13,7 +13,7 @@ function escape(str) {
 $(document).ready(function() {
 
   function createTweetElement(tweet) {
-    return `<article>
+    return `<article data-postID="${escape(tweet._id)}">
               <header>
                 <img class="avatar" src="${escape(tweet.user.avatars.small)}">
                 <div class="fullName">${escape(tweet.user.name)}</div>
@@ -23,7 +23,8 @@ $(document).ready(function() {
                 <p>${escape(tweet.content.text)}</p>
               </div>
               <footer>
-                <p>${escape(moment(tweet.created_at).fromNow())}</p>
+                <p>${escape(moment(tweet.created_at).fromNow())}</p><br>
+                <p># Likes: ${escape(tweet.likes)}</p>
                 <div class="icons">
                   <i class="fa fa-flag" aria-hidden="true"></i>
                   <i class="fa fa-retweet" aria-hidden="true"></i>
@@ -35,6 +36,20 @@ $(document).ready(function() {
 
   function renderTweets(tweets) {
     $('#tweets').empty().append(tweets.reverse().map(createTweetElement));
+
+    $(".fa-heart").on("click", function( event ) {
+      const postId = $(this).closest('article').attr('data-postID');
+      $.ajax({
+        method: "put",
+        url: "/tweets/" + postId + '/like', 
+        // success: (err, result) => {
+        //   console.log(result);
+        // }
+        success(){
+          loadTweets();
+        }
+      })
+    });
   };
 
   function loadTweets() {
@@ -78,6 +93,7 @@ $(document).ready(function() {
       }
      });
     });
+
 });
 
 

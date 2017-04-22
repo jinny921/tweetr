@@ -1,0 +1,144 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/*
+ * Global layout stuff
+ */
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #EBDDE2;
+  font-family: 'Roboto Condensed', sans-serif; }
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+main.container {
+  width: 450px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  padding-top: 100px; }
+
+#nav-bar {
+  position: fixed;
+  background-color: #00a087;
+  color: #e8fdff;
+  left: 0;
+  right: 0;
+  height: 80px;
+  padding: 0px 2em 0px 2em; }
+
+#nav-bar .logo {
+  width: 80px;
+  height: 80px;
+  float: left; }
+
+#nav-bar {
+  z-index: 30; }
+
+#nav-bar .header {
+  font-size: 2em;
+  margin-left: 10px;
+  line-height: 80px;
+  float: left; }
+
+#nav-bar .composeButton {
+  float: right;
+  height: 50px;
+  width: 100px;
+  margin-top: 15px;
+  background-color: #f2a7d6;
+  border: solid grey;
+  border-radius: 15px; }
+
+.change {
+  opacity: 0.5; }
+
+.new-tweet {
+  border: solid lightgrey 1px;
+  border-radius: 10px;
+  background-color: #EBDDE2;
+  padding: 15px; }
+
+.new-tweet h2 {
+  border-bottom: solid thin;
+  margin-top: 0px;
+  color: teal; }
+
+.new-tweet textarea {
+  width: 100%;
+  margin-bottom: 10px; }
+
+.new-tweet .counter {
+  float: right; }
+
+.red {
+  color: red; }
+
+.new-tweet .err {
+  color: red;
+  padding: 10px; }
+
+#tweets article {
+  border: solid lightgrey 1px;
+  border-radius: 10px;
+  margin: 10px 0px; }
+
+#tweets article:hover .icons {
+  opacity: 1.0; }
+
+#tweets .avatar {
+  float: left;
+  height: 80px;
+  width: 80px;
+  margin-left: 10px;
+  border: solid thin lemonchiffon;
+  border-radius: 10px; }
+
+#tweets .fullName {
+  line-height: 40px;
+  margin-left: 10px;
+  float: left;
+  font-size: 2em;
+  color: teal; }
+
+#tweets .userAcc {
+  float: right;
+  padding: 10px 10px;
+  color: grey; }
+
+#tweets header {
+  border-bottom: solid thin lightgrey;
+  overflow: auto;
+  padding: 10px 0 10px 0px;
+  background-color: #EBDDE2;
+  font-weight: bold;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px; }
+
+#tweets .content {
+  padding: 10px 10px;
+  height: 120px;
+  font-size: 1.5em; }
+
+#tweets footer {
+  border-top: solid thin lightgrey;
+  padding: 0px 10px; }
+
+#tweets p {
+  display: inline-block; }
+
+#tweets .icons {
+  display: inline-block;
+  float: right;
+  margin: 15px;
+  opacity: 0.3; }
